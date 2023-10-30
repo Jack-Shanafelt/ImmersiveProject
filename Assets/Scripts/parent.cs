@@ -19,12 +19,12 @@ public class parent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
+        body = GameObject.FindGameObjectsWithTag("Body"); 
+        Body = body[0].transform;
     }
     public void parenting(){
-        body = GameObject.FindGameObjectsWithTag("Body");
-        Body = body[0].transform;
+        
+        
         child.transform.SetParent(Body);
     }
 }
