@@ -1,0 +1,34 @@
+{
+    "name": "Controller",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "80b4b1f8-4a35-4e65-882c-f70a9b167401",
+            "actions": [
+                {
+                    "name": "grip",
+                    "type": "Button",
+                    "id": "ded4cef4-f073-4101-a701-2289e60d7f43",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "70ccaf1d-55f6-4d92-8341-7823da44d315",
+                    "path": "/user/hand/right/grip",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "grip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
