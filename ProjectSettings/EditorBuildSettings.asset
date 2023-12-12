@@ -5,12 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/GIMM350.unity
-    guid: ad4872084dabce548a2ff16571c60292
-  - enabled: 0
-    path: Assets/Scenes/Workshop.unity
-    guid: 86cc0292018030240a2e2e8187b1f60c
   - enabled: 1
     path: Assets/Scenes/Loop.unity
     guid: 262ef418060bf7840b6ff8d2ce1c18a9
