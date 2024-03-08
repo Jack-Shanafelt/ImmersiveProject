@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR;
 
 public class parent : MonoBehaviour
 {
@@ -9,6 +8,7 @@ public class parent : MonoBehaviour
     [SerializeField] Transform Parent;
     [SerializeField] GameObject[] body;
     [SerializeField] Transform Body;
+    [SerializeField] Collider triggerArea; // the trigger area
 
     // Start is called before the first frame update
     void Start()
@@ -16,15 +16,29 @@ public class parent : MonoBehaviour
         child.transform.SetParent(Parent);
     }
 
-    // Update is called once per frame
-    void Update()
+    // This method is called when a collider enters the trigger area
+    void OnTriggerEnter(Collider other)
     {
-        body = GameObject.FindGameObjectsWithTag("Body"); 
-        Body = body[0].transform;
+        if (other.gameObject.CompareTag("Body"))
+        {
+            Body = other.transform;
+        }
     }
-    public void parenting(){
-        
-        
-        child.transform.SetParent(Body);
+
+    // This method is called when a collider exits the trigger area
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Body"))
+        {
+            Body = null;
+        }
+    }
+
+    public void parenting()
+    {
+        if (Body != null)
+        {
+            child.transform.SetParent(Body);
+        }
     }
 }
