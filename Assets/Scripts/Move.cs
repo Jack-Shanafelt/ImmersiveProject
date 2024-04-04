@@ -19,6 +19,7 @@ public class Move : MonoBehaviour
     }
     public void move()
     {
+        Debug.Log("Move method called");
         object1k.isKinematic = false;
         object1.transform.position = object2.transform.position + new Vector3(0, 0, 0);
     }
