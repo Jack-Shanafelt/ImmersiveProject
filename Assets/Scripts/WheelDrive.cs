@@ -9,6 +9,7 @@ public class ObjectDrive : MonoBehaviour
     public float fuelConsumptionRate = 1f; // rate of fuel consumption
     private Rigidbody rb; // the Rigidbody component
     private bool isMoving = false; // whether the object is moving
+    public WheelCollider[] wheelColliders; // the WheelColliders
 
     void Start()
     {
@@ -16,12 +17,18 @@ public class ObjectDrive : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (isMoving && fuel > 0)
         {
             Drive();
         }
+
+        if (fuel > 0)
+        {
+            DriveWithWheelColliders();
+        }
+
     }
 
     public void Drive()
@@ -33,6 +40,21 @@ public class ObjectDrive : MonoBehaviour
 
             // Apply the force to the Rigidbody
             rb.AddForce(force);
+
+            // Consume fuel
+            fuel -= fuelConsumptionRate * Time.deltaTime;
+        }
+    }
+
+    public void DriveWithWheelColliders()
+    {
+        if (fuel > 0)
+        {
+            // Apply the motor torque to the WheelColliders
+            foreach (WheelCollider wheelCollider in wheelColliders)
+            {
+                wheelCollider.motorTorque = speed;
+            }
 
             // Consume fuel
             fuel -= fuelConsumptionRate * Time.deltaTime;
